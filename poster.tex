@@ -1,0 +1,66 @@
+\documentclass[a0paper,portrait]{baposter}
+\usepackage{amsmath,amssymb,amsthm} 
+\input{commands.tex}
+\usepackage{lipsum}
+
+\newtheorem{theorem*}{Theorem}
+\definecolor{lightblue}{rgb}{0.1,0.46,0.72}
+\definecolor{blue}{rgb}{0.1,0.46,1}
+
+\begin{document}
+
+\begin{poster}
+{
+columns=2,
+headerborder=closed, % Adds a border around the header of content boxes
+bgColorOne=white, % Background color for the gradient on the left side of the poster
+bgColorTwo=white, % Background color for the gradient on the right side of the poster
+boxColorOne=white, % Background color of the content boxes
+headerColorOne=lightblue, % Background color for the header in the content boxes (left side)
+headerColorTwo=lightblue, % Background color for the header in the content boxes (right side)
+borderColor=lightblue, % Border color
+headerFontColor=white, % Text color for the header text in the content boxes
+textborder=roundedleft, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+%eyecatcher=1, % Set to false for ignoring the left logo in the title and move the title left
+headershape=roundedright, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+}
+{}%left logo
+{Title of the report}
+{\medskip\textsc{My name}}
+{\includegraphics[width=6cm]{trinity-stacked.jpg}}
+
+\headerbox{Introduction}{name=intro,column=0,row=0}{
+\lipsum[1-1] 
+}
+
+\headerbox{Box 1}{name=box1,column=0,below=intro}{
+\lipsum[1-1]
+}
+
+\headerbox{Box 2}{name=box2,column=0,below=box1}{
+\lipsum[1-2]
+\begin{theorem*}
+We have \dots
+\end{theorem*}
+\lipsum[1-1]
+}
+
+\headerbox{Box 3}{name=box3,column=1}{%,aligned=intro}{
+\lipsum[1-1]
+\begin{theorem*}
+We have \dots
+\end{theorem*}
+\lipsum[1-2]
+}
+
+\headerbox{Box4}{name=box4,column=1,below=box3}{
+\lipsum[1-1]
+}
+
+\headerbox{References}{name=ref,column=1,below=box4}{
+\input{biblio.tex}
+}
+
+\end{poster}
+
+\end{document}
